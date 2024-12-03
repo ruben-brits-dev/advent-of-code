@@ -28,3 +28,4 @@ So, for these example lists, the similarity score at the end of this process is 
 Once again consider your left and right lists. What is their similarity score?
 
  ## My solution
+ Very similar to Star 1 - no sorting needed this time around. Opted for a for loop with the built in count function. Zip coming in handy!

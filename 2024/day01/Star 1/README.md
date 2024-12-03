@@ -31,3 +31,7 @@ To find the total distance between the left list and the right list, add up the 
 Your actual left and right lists contain many location IDs. What is the total distance between your lists?
 
  ## My solution
+ What a believe to be a decent attempt at my first problem. Chose python as the language as the language has a lot of built-in functions that help, but I do dislike all the bloat that comes with it.
+
+ Most of the code is actually just to read in the data lol.
+ I went for the built in sorted function to sort the data, and then zipped the two lists together to pair them up. Basic absolute distance used.
