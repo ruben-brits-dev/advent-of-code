@@ -16,9 +16,14 @@ This repository is organized by year, with each year's solutions stored in its o
 advent-of-code/
 ├── 2023/
 │   ├── day01/
-│   │   ├── solution.py
-│   │   ├── input.txt
-│   │   └── README.md
+│   │   ├── Star 1/
+│   │   │   ├── solution.py
+│   │   │   ├── input.txt
+│   │   │   └── README.md
+│   │   ├── Star 2/
+│   │   │   ├── solution.py
+│   │   │   ├── input.txt
+│   │   │   └── README.md
 │   ├── day02/
 │   └── ...
 ├── 2024/
