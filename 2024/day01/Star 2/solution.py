@@ -17,18 +17,21 @@ class Puzzle:
             return [list(map(int, line.split())) for line in data]
 
     @staticmethod
-    def _get_distance(a, b):
-        return abs(a - b)
+    def _get_occurences_in_col2(number, col2):
+        return col2.count(number)
 
     def solve(self):
         col1, col2 = zip(*self.data)
-        col1, col2 = sorted(col1), sorted(col2)
 
-        distance = sum(self._get_distance(x, y) for x, y in zip(col1, col2))
+        similarity = sum(x*self._get_occurences_in_col2(x, col2)
+                         for x, y in zip(col1, col2))
 
-        return distance
+        return similarity
 
 
 if __name__ == "__main__":
-    puzzle = Puzzle("input.txt")
-    print("Total Distance:", puzzle.solve())
+    testPuzzle = Puzzle("custom-test1.txt")
+    print("Total Distance:", testPuzzle.solve())
+
+    realPuzzle = Puzzle("input.txt")
+    print("Total Distance:", realPuzzle.solve())

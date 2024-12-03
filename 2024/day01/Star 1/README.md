@@ -1,4 +1,4 @@
-# Day 1: Historian Hysteria
+# Day 1: Historian Hysteria - Star 1
 Link to the problem: [Advent of Code 2024, Day 1](https://adventofcode.com/2024/day/1)
 
  ---
