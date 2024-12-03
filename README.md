@@ -3,6 +3,8 @@
 
 Welcome to my **Advent of Code** repository! This is where I will document my journey through the annual coding challenges of [Advent of Code](https://adventofcode.com/). I am only starting in 2024 and will add my solutions, written in the programming language of my choice, showcasing problem-solving skills and creative approaches.
 
+Thank you to [Dewald Pretorius](https://github.com/3venthorizon) for introducing me to Advent of code!
+
 ---
 
 ## 📂 Repository Structure
