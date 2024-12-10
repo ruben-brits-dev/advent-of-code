@@ -19,6 +19,9 @@ thus above is 6 reports each with 5 levels.
 A report is considered safe  if both are true:
  - levels are either all increasing or all decreasing
  - adjacent levels may only differ by at least one and at most three
+  
+Problem Dampener is introduced:
+ - everything is the same, however if 1 unsafe level would result in a safe report, the report is considered safe
 
  ## My solution
-Very much a brute force approach for now - would love to come back to this and optimize. There has to be a better approach then going so iteratively
+Quite a nice challenge - First thought that came to mind is to implement some form of backtracking by using an error index and check around (ie: n-1, n, n+1) to see if removal will give a safe report.

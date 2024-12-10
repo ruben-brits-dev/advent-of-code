@@ -22,38 +22,41 @@ class Puzzle:
     def _is_within_limit(self, num1, num2):
         return 1 <= abs(num1 - num2) <= 3
 
-    def solveReport(self, report):
-        isAscending = self._is_ascending(report[0], report[1])
-        unsafe = False
-        unsafeIndex = -1
-        if isAscending:
-            for n in range(len(report) - 1):
-                if not (report[n] < report[n+1] and self._is_within_limit(report[n], report[n+1])):
-                    unsafe = True
-                    unsafeIndex = n
-                    break
-        else:
-            for n in range(len(report) - 1):
-                if not (report[n] > report[n+1] and self._is_within_limit(report[n], report[n+1])):
-                    unsafe = True
-                    unsafeIndex = n
-                    break
-        return unsafe, unsafeIndex
+    def check_report_safety(self, report):
+        is_ascending = self._is_ascending(report[0], report[1])
+        direction = 1 if is_ascending else -1
+
+        for i in range(len(report) - 1):
+            if not (direction * report[i] < direction * report[i + 1] and self._is_within_limit(report[i], report[i + 1])):
+                return True, i
+
+        return False, -1
+
+    def is_safe_after_removal(self, report, index_to_remove):
+        new_report = report[:index_to_remove] + report[index_to_remove + 1:]
+        is_unsafe, _ = self.check_report_safety(new_report)
+        return not is_unsafe
 
     def solve(self):
-        safeCount = 0
+        safe_count = 0
         for report in self.data:
-            unsafe, unsafeIndex = self.solveReport(report)
-            if not unsafe:
-                safeCount += 1
-            else:
-                # remove element n and retry solveReport with new array
-                report.pop(unsafeIndex)
-                unsafe, unsafeIndex = self.solveReport(report)
-                if not unsafe:
-                    safeCount += 1
+            is_unsafe, problem_index = self.check_report_safety(report)
 
-        return safeCount
+            if not is_unsafe:
+                safe_count += 1
+            else:
+                is_safe = False
+                if problem_index > 0 and self.is_safe_after_removal(report, problem_index - 1):
+                    is_safe = True
+                elif self.is_safe_after_removal(report, problem_index):
+                    is_safe = True
+                elif problem_index + 1 < len(report) and self.is_safe_after_removal(report, problem_index + 1):
+                    is_safe = True
+
+                if is_safe:
+                    safe_count += 1
+
+        return safe_count
 
 
 if __name__ == "__main__":
